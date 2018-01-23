@@ -1,4 +1,4 @@
-//Wordpress e mysql via Docker compose.<br>
+//Wordpress e Mysql via Docker compose.<br>
 docker compose up  <br>
 docker-compose up --scale wordpress=2 -d //Scalar a aplicação
 
