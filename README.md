@@ -1,21 +1,19 @@
-//Wordpress and  Mysql -  Docker compose.<br>
-docker compose up  <br>
-docker-compose up --scale wordpress=2 -d //Scalar a aplicação
+# Monitoring Tools Dockers 
 
-//Netdata <br>
+# Netdata <br>
 docker run -d --cap-add SYS_PTRACE -v /proc:/host/proc:ro -v /sys:/host/sys:ro -p 19999:19999 titpetric/netdata 
 
-//Kibana+Elasticsearch <br>
+# Kibana+Elasticsearch <br>
 docker run --name some-kibana -e ELASTICSEARCH_URL=http://some-elasticsearch:9200 -p 5601:5601 -d kibana  <br>
 
-//Rancher Server <br> 
+# Rancher Server <br> 
 docker swarm init --advertise-addr [your ip]  <br>
 sudo docker run -d --restart=unless-stopped -p 7070:8080 rancher/server
 
 <br><br>
 -----
-Zabbix  Monitoring -------------------------------------------------------------------------------  <br>
-<br><br>
+# Zabbix 
+# BD MariaDB 
 docker run \ <br>
    -d \ 
    --name dockbix-db \
@@ -24,7 +22,7 @@ docker run \ <br>
    --env="MARIADB_PASS=my_password" \
    monitoringartist/zabbix-db-mariadb
 
-
+# Zabbix Port 80, Server Port 10051
 docker run \
    -d \
    --name dockbix \
@@ -41,7 +39,7 @@ docker run \
 
 #login = "admin"  Password = "zabbix"
 
-#Agent 
+# Agent 
 docker run \
   --name=dockbix-agent-xxl \
   --net=host \
@@ -53,7 +51,7 @@ docker run \
   -e "ZA_ServerActive=<ZABBIX SERVER IP/DNS NAME>" \
   -d monitoringartist/dockbix-agent-xxl-limited:latest
 
-#Grafana
+# Grafana
 # create /var/lib/grafana as persistent volume storage
 docker run -d -v /var/lib/grafana --name grafana-xxl-storage busybox:latest
 
