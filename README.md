@@ -13,7 +13,8 @@ sudo docker run -d --restart=unless-stopped -p 7070:8080 rancher/server
 <br><br>
 -----
 # Zabbix 
-# BD MariaDB 
+BD MariaDB 
+
 docker run \ <br>
    -d \ 
    --name dockbix-db \
@@ -39,7 +40,7 @@ docker run \
 
 #login = "admin"  Password = "zabbix"
 
-# Agent 
+# Agent for Zabbix
 docker run \
   --name=dockbix-agent-xxl \
   --net=host \
@@ -51,7 +52,7 @@ docker run \
   -e "ZA_ServerActive=<ZABBIX SERVER IP/DNS NAME>" \
   -d monitoringartist/dockbix-agent-xxl-limited:latest
 
-# Grafana
+# Grafana 
 # create /var/lib/grafana as persistent volume storage
 docker run -d -v /var/lib/grafana --name grafana-xxl-storage busybox:latest
 
@@ -64,5 +65,12 @@ docker run \
   monitoringartist/grafana-xxl:latest 
 
 #Login ="admin" and Password ="admin" 
+
+# Portainer 
+ docker run \
+  -d \
+  -p 9000:9000 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v portainer_data:/data portainer/portainer
 
 
