@@ -1,4 +1,4 @@
-# Monitoring Tools Dockers 
+# Monitoring Tools Dockers  <br>
 
 
 ## Rancher Server <br> 
@@ -11,12 +11,10 @@ docker run -d --cap-add SYS_PTRACE -v /proc:/host/proc:ro -v /sys:/host/sys:ro -
 ## Kibana+Elasticsearch <br>
 docker run --name some-kibana -e ELASTICSEARCH_URL=http://some-elasticsearch:9200 -p 5601:5601 -d kibana  <br>
 
-
-<br><br>
+<br>
 -----
-# Zabbix 
+## Zabbix 
 //BD MariaDB 
-
 docker run \ <br>
    -d \ 
    --name dockbix-db \
@@ -25,7 +23,7 @@ docker run \ <br>
    --env="MARIADB_PASS=my_password" \
    monitoringartist/zabbix-db-mariadb
 
-# Zabbix Port 80, Server Port 10051
+## Zabbix Port 80, Server Port 10051
 docker run \
    -d \
    --name dockbix \
@@ -40,9 +38,9 @@ docker run \
    --env="XXL_grapher=true" \
    monitoringartist/dockbix-xxl:latest
 
-#login = "admin"  Password = "zabbix"
+//login = "admin"  Password = "zabbix"
 
-# Agent for Zabbix
+## Agent for Zabbix
 docker run \
   --name=dockbix-agent-xxl \
   --net=host \
@@ -54,11 +52,11 @@ docker run \
   -e "ZA_ServerActive=<ZABBIX SERVER IP/DNS NAME>" \
   -d monitoringartist/dockbix-agent-xxl-limited:latest
 
-# Grafana 
-# create /var/lib/grafana as persistent volume storage
+## Grafana 
+## create /var/lib/grafana as persistent volume storage
 docker run -d -v /var/lib/grafana --name grafana-xxl-storage busybox:latest
 
-# start grafana-xxl
+## start grafana-xxl
 docker run \
   -d \
   -p 3000:3000 \
@@ -66,9 +64,9 @@ docker run \
   --volumes-from grafana-xxl-storage \
   monitoringartist/grafana-xxl:latest 
 
-#Login ="admin" and Password ="admin" 
+//Login ="admin" and Password ="admin" 
 
-# Portainer 
+## Portainer 
  docker run  -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 
