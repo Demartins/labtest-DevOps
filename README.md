@@ -11,9 +11,9 @@ docker run -d --cap-add SYS_PTRACE -v /proc:/host/proc:ro -v /sys:/host/sys:ro -
 ## Kibana+Elasticsearch <br>
 docker run --name some-kibana -e ELASTICSEARCH_URL=http://some-elasticsearch:9200 -p 5601:5601 -d kibana  <br>
 
-<br>
------
+
 ## Zabbix 
+
 //BD MariaDB 
 docker run \ <br>
    -d \ 
