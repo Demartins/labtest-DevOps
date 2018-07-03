@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+    ambassador:
+      image: cpuguy83/docker-grand-ambassador
+      container_name: ambassador
+      hostname: ambassador01
+      network_mode: "bridge"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock"
+      command: "-name jenkins -name gitlab "
+
+    jenkins:
+      image: jenkins:latest
+      container_name: jenkins
+      hostname: jenkins01
+      network_mode: "bridge"
+      links:
+        - "ambassador:gitlab"
+      ports:
+        - "8080:8080"
+        - "50000:50000"
+      volumes:
+        - ~/Projects/jenkins_home:/var/jenkins_home
+
+    gitlab:
+        image: gitlab/gitlab-ce
+        container_name: gitlab
+        hostname: gitlab
+        restart: always
+        network_mode: bridge
+        links:
+          - "ambassador:jenkins"
+        ports:
+           - "443:443"
+           - "8050:80"
+           - "22:22"
+        volumes:
+          - ~/Projects/gitlab/config:/etc/gitlab
+          - ~/Projects/gitlab/logs:/var/log/gitlab
+          - ~/Projects/gitlab/data:/var/opt/gitlab
