@@ -1,5 +1,7 @@
-# Monitoring Tools Dockers  <br>
+# Tolls DevOps  <br>
 
+## Jenkins CI/CD <br> 
+docker run -d --name jenkins_test  -p 7070:8080 -p 60000:50000 -v /home/jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 
 ## Rancher Server <br> 
 docker swarm init --advertise-addr [your ip]  <br>
