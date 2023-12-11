@@ -85,15 +85,15 @@ docker run \
 ## monitoring
 Full stack tools for monitoring containers and other stuff. ;)
 
-Netdata
-Prometheus
-AlertManager
-Rocket.Chat
-Docker
-cAdvisor
-Grafana
-Node_Exporter
-Install Demonstration
+#Netdata 
+#Prometheus  
+#AlertManager  
+#Rocket.Chat   
+#Docker 
+#cAdvisor 
+#Grafana 
+#Node_Exporter 
+#Install Demonstration 
 
 demo //TODO
 
