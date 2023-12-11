@@ -1,4 +1,4 @@
-# Tolls DevOps Labs POCS <br>
+# Tolls DevOps Labs Pocs <br>
 
 ## Jenkins CI/CD <br> 
 docker run -d --name jenkins_test  -p 7070:8080 -p 60000:50000 -v /home/jenkins_home:/var/jenkins_home jenkins/jenkins:lts
@@ -75,9 +75,25 @@ docker run \
 
 ## Portainer 
  docker run  -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
  
  ## Scale Docker
  Comando Scale Docker: \
  docker-compose -p labtestdocker -f ./docker-compose.yml up --scale wordpress=2 -d
 
+
+## monitoring
+Full stack tools for monitoring containers and other stuff. ;)
+
+Netdata
+Prometheus
+AlertManager
+Rocket.Chat
+Docker
+cAdvisor
+Grafana
+Node_Exporter
+Install Demonstration
+
+demo //TODO
 
