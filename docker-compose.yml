@@ -8,7 +8,7 @@ services:
 
   haproxy:
     restart: always
-    mem_limit: 128m
+    mem_limit: 256m
     image: dockercloud/haproxy
     networks:
       - laboi-network
@@ -32,7 +32,7 @@ services:
     restart: always
     networks:
       - laboi-network
-    mem_limit: 2g
+    mem_limit: 4g
     mem_reservation: 1g
     environment:
       - MYSQL_ROOT_PASSWORD=senha
@@ -48,7 +48,7 @@ services:
     restart: always
     networks:
       - laboi-network
-    mem_limit: 2g
+    mem_limit: 4g
     mem_reservation: 1g
     ports:
       - 80
